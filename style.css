@@ -32,3 +32,45 @@ body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color
 .btn-svt { background-color: #27ae60; }      /* Vert */
 .btn-physique { background-color: #f1c40f; } /* Jaune */
 .btn-geo { background-color: #16a085; }      /* Turquoise */
+
+/* Cartes des Thèmes */
+.theme-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.theme-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Pour que l'image ne soit pas déformée */
+}
+
+.theme-content {
+    padding: 20px;
+}
+
+.theme-content h2 {
+    margin-top: 0;
+    color: #e67e22; /* Couleur orange Histoire */
+}
+
+.nav-back {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Version Desktop : Image à gauche, texte à droite */
+@media (min-width: 600px) {
+    .theme-card { flex-direction: row; }
+    .theme-img { width: 30%; height: auto; }
+    .theme-content { width: 70%; }
+}
