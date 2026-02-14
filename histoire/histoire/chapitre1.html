@@ -3,80 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert : La Première Guerre mondiale</title>
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>14-18 | La Grande Guerre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f1ea; /* Beige naturel */
+            --accent-green: #6b7e6a; /* Vert sauge profond */
+            --earth-dark: #3c3530; /* Brun terreux */
+            --glass: rgba(255, 255, 255, 0.6);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--earth-dark);
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=1974&auto=format&fit=crop'); /* Image nature/brume */
+            background-size: cover;
+            background-attachment: fixed;
+            clip-path: ellipse(150% 100% at 50% 0%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin: 0;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        /* --- CONTENT SECTION --- */
+        .container {
+            max-width: 1100px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent-green);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        /* --- FRISE CHRONOLOGIQUE MODERNE --- */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 30px rgba(107, 126, 106, 0.1);
+        }
+
+        .year {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 100px 20px;
+            background: var(--earth-dark);
+            color: var(--bg-color);
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s all ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .main-card { padding: 30px; }
+            h1 { font-size: 4rem; }
+        }
+    </style>
 </head>
-<body class="modern-theme">
+<body>
 
-    <nav class="glass-nav">
-        <a href="index.html">⬅️ Retour au Sommaire</a>
-    </nav>
+<header>
+    <div class="hero-content">
+        <p>Une cicatrice dans l'histoire</p>
+        <h1>1914 — 1918</h1>
+    </div>
+</header>
 
-    <header class="hero-section">
-        <span class="badge">ANALYSE APPROFONDIE</span>
-        <h1>L'Effondrement de l'Europe : <br><span class="highlight">1914 - 1918</span></h1>
-        <p>Une rupture majeure dans l'histoire de l'humanité.</p>
-    </header>
+<div class="container">
+    <div class="main-card reveal active">
+        <span style="color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Synthèse 3ème</span>
+        <h2>La Grande Guerre</h2>
+        <p class="intro-text">
+            Le conflit qui devait être "la der des ders". Une immersion dans une époque de bouleversements où la technologie a rencontré la tragédie humaine, transformant à jamais le visage de l'Europe.
+        </p>
 
-    <main class="container">
-
-        <section class="modern-card">
-            <h2>💡 La Grande Phrase à retenir :</h2>
-            <blockquote class="big-phrase">
-                "La Première Guerre mondiale n'est pas seulement un conflit entre armées, c'est une <strong>guerre totale</strong> où la distinction entre civils et militaires s'efface devant une violence industrielle de masse."
-            </blockquote>
-        </section>
-
-        <section class="intro-grid">
-            <div class="intro-text">
-                <h2>I. L'expérience combattante : La brutalisation</h2>
-                <p>Au front, la guerre change de visage. Ce n'est plus une aventure héroïque, mais un processus industriel de destruction.</p>
-                <ul>
-                    <li><strong>La déshumanisation :</strong> Dans les tranchées, l'homme devient une cible anonyme face à la puissance de l'artillerie. Les batailles comme <strong>Verdun (1916)</strong> ne visent plus à gagner du terrain, mais à "saigner à blanc" l'armée ennemie.</li>
-                    <li><strong>La technologie de mort :</strong> L'innovation scientifique sert à tuer plus efficacement (chars, gaz de combat, aviation de reconnaissance et de bombardement).</li>
-                </ul>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="year">1914</span>
+                <strong>Le Déclenchement</strong>
+                <p>L'attentat de Sarajevo plonge les empires dans une guerre de mouvement rapide.</p>
             </div>
-            <div class="intro-image-container">
-                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80" alt="Guerre">
+            <div class="timeline-item">
+                <span class="year">1915</span>
+                <strong>L'Enlisement</strong>
+                <p>Les soldats s'enterrent. C'est le début de la guerre de position (tranchées).</p>
             </div>
-        </section>
-
-        <section class="modern-card">
-            <h2>II. Une société mobilisée vers un seul but : La Victoire</h2>
-            <p>L'effort de guerre transforme durablement la société française et européenne :</p>
-            <div class="pilliers-grid">
-                <div class="pillier-card">
-                    <h3>Le rôle crucial des femmes</h3>
-                    <p>En l'absence des hommes, elles assurent la survie économique du pays. C'est un tournant pour l'émancipation féminine, même si le retour à la normale sera difficile en 1918.</p>
-                </div>
-                <div class="pillier-card">
-                    <h3>L'économie de guerre</h3>
-                    <p>L'État intervient partout : il dirige les usines, réquisitionne les ressources et s'endette lourdement, notamment auprès des États-Unis.</p>
-                </div>
+            <div class="timeline-item">
+                <span class="year">1916</span>
+                <strong>L'Enfer</strong>
+                <p>Batailles de Verdun et de la Somme. La violence de masse atteint son paroxysme.</p>
             </div>
-        </section>
+            <div class="timeline-item">
+                <span class="year">1917</span>
+                <strong>Le Tournant</strong>
+                <p>Entrée des USA en guerre et révolutions russes. Le moral des troupes vacille.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">1918</span>
+                <strong>L'Armistice</strong>
+                <p>Le 11 novembre, les combats cessent. L'heure est au bilan et à la reconstruction.</p>
+            </div>
+        </div>
 
-        <section class="glass-card warning-card">
-            <h2>III. Le Génocide des Arméniens (1915-1916)</h2>
-            <p>Profitant du chaos de la guerre mondiale, le gouvernement "Jeune-Turc" de l'Empire Ottoman planifie l'élimination des populations arméniennes sous prétexte qu'elles soutiendraient l'ennemi russe.</p>
-            <p><strong>La Méthode :</strong> Arrestations des élites, marches forcées vers le désert de Syrie sans nourriture, massacres de masse. C'est une étape clé vers la notion de <strong>crimes contre l'humanité</strong>.</p>
-        </section>
-
-        <section class="modern-card">
-            <h2>IV. La fin du monde ancien</h2>
-            <p>L'année 1917 marque un basculement :</p>
-            <ul>
-                <li><strong>La Révolution Russe :</strong> Sous l'impulsion de Lénine, la Russie devient communiste et quitte la guerre. Cela fait peur à toute l'Europe (la "peur rouge").</li>
-                <li><strong>Le Traité de Versailles (1919) :</strong> Une paix jugée comme un "Diktat" par l'Allemagne, qui se sent humiliée, posant les graines de la Seconde Guerre mondiale.</li>
+        <div style="margin-top: 60px; padding: 40px; background: rgba(107, 126, 106, 0.1); border-radius: 30px;">
+            <h3>Notions clés pour le brevet</h3>
+            <ul style="columns: 2; list-style-type: '— '; padding-left: 20px;">
+                <li>Guerre totale</li>
+                <li>Génocide arménien</li>
+                <li>Violence de masse</li>
+                <li>Propagande & Censure</li>
+                <li>Poilus</li>
+                <li>Arrière & Front</li>
             </ul>
-        </section>
+        </div>
+    </div>
+</div>
 
-    </main>
+<footer>
+    <p style="font-family: 'Playfair Display'; font-size: 1.5rem;">"Se souvenir pour construire demain."</p>
+    <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 20px;">Support d'étude — Histoire 3ème &copy; 2026</p>
+</footer>
 
-    <footer class="cta-section">
-        <p>Ce chapitre est maintenant complet et détaillé. ✅</p>
-    </footer>
+<script>
+    // Petit script pour animer l'apparition au défilement
+    window.addEventListener('scroll', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach(reveal => {
+            const windowHeight = window.innerHeight;
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - 150) {
+                reveal.classList.add('active');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
