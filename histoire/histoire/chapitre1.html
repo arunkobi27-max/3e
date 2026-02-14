@@ -3,223 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>14-18 | La Grande Guerre</title>
+    <title>Cours 3ème | La Grande Guerre</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f1ea; /* Beige naturel */
-            --accent-green: #6b7e6a; /* Vert sauge profond */
-            --earth-dark: #3c3530; /* Brun terreux */
-            --glass: rgba(255, 255, 255, 0.6);
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --earth: #2c2520;
+            --sage: #6b7e6a;
+            --clay: #a67c52;
+            --sand: #fdfaf5;
+            --white: #ffffff;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--sand); color: var(--earth); line-height: 1.7; }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--earth-dark);
-            overflow-x: hidden;
-        }
-
-        /* --- HERO SECTION --- */
+        /* HEADER */
         header {
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=1974&auto=format&fit=crop'); /* Image nature/brume */
-            background-size: cover;
-            background-attachment: fixed;
-            clip-path: ellipse(150% 100% at 50% 0%);
-            color: white;
-            text-align: center;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=1500&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;
         }
 
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            margin: 0;
-            font-style: italic;
-        }
-
-        .hero-content p {
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-
-        /* --- CONTENT SECTION --- */
-        .container {
-            max-width: 1100px;
-            margin: -100px auto 100px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .main-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.4);
+        /* LAYOUT */
+        .container { max-width: 1000px; margin: -60px auto 100px; padding: 0 20px; }
+        
+        .lesson-card {
+            background: var(--white);
+            padding: 50px;
             border-radius: 40px;
-            padding: 60px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--accent-green);
+        h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 0; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--sage); border-bottom: 2px solid var(--sand); padding-bottom: 10px; }
+        h3 { color: var(--clay); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-top: 30px; }
+
+        .highlight-box {
+            background: var(--sand);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid var(--clay);
+            margin: 20px 0;
         }
 
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-bottom: 50px;
-        }
-
-        /* --- FRISE CHRONOLOGIQUE MODERNE --- */
-        .timeline {
+        .grid-dates {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+            gap: 15px;
+            margin: 20px 0;
         }
 
-        .timeline-item {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            border: 1px solid transparent;
-            transition: var(--transition);
-            cursor: pointer;
-        }
+        .date-item { background: var(--sage); color: white; padding: 15px; border-radius: 12px; text-align: center; }
+        .date-item b { display: block; font-size: 1.2rem; }
 
-        .timeline-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-green);
-            box-shadow: 0 15px 30px rgba(107, 126, 106, 0.1);
-        }
-
-        .year {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--accent-green);
-            margin-bottom: 10px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 100px 20px;
-            background: var(--earth-dark);
-            color: var(--bg-color);
-        }
-
-        /* --- ANIMATIONS --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 1s all ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .main-card { padding: 30px; }
-            h1 { font-size: 4rem; }
-        }
+        footer { text-align: center; padding: 50px; opacity: 0.6; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="hero-content">
-        <p>Une cicatrice dans l'histoire</p>
-        <h1>1914 — 1918</h1>
-    </div>
+    <h1>La Première Guerre Mondiale</h1>
+    <p>PROGRAMME OFFICIEL HISTOIRE 3ème</p>
 </header>
 
 <div class="container">
-    <div class="main-card reveal active">
-        <span style="color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Synthèse 3ème</span>
-        <h2>La Grande Guerre</h2>
-        <p class="intro-text">
-            Le conflit qui devait être "la der des ders". Une immersion dans une époque de bouleversements où la technologie a rencontré la tragédie humaine, transformant à jamais le visage de l'Europe.
-        </p>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="year">1914</span>
-                <strong>Le Déclenchement</strong>
-                <p>L'attentat de Sarajevo plonge les empires dans une guerre de mouvement rapide.</p>
-            </div>
-            <div class="timeline-item">
-                <span class="year">1915</span>
-                <strong>L'Enlisement</strong>
-                <p>Les soldats s'enterrent. C'est le début de la guerre de position (tranchées).</p>
-            </div>
-            <div class="timeline-item">
-                <span class="year">1916</span>
-                <strong>L'Enfer</strong>
-                <p>Batailles de Verdun et de la Somme. La violence de masse atteint son paroxysme.</p>
-            </div>
-            <div class="timeline-item">
-                <span class="year">1917</span>
-                <strong>Le Tournant</strong>
-                <p>Entrée des USA en guerre et révolutions russes. Le moral des troupes vacille.</p>
-            </div>
-            <div class="timeline-item">
-                <span class="year">1918</span>
-                <strong>L'Armistice</strong>
-                <p>Le 11 novembre, les combats cessent. L'heure est au bilan et à la reconstruction.</p>
-            </div>
+    
+    <div class="lesson-card">
+        <h2>01. Les grandes phases du conflit</h2>
+        <p>Le conflit commence le <b>3 août 1914</b>. Il oppose la <b>Triple Entente</b> (France, Royaume-Uni, Russie) aux <b>Empires Centraux</b> (Allemagne, Autriche-Hongrie).</p>
+        
+        <div class="grid-dates">
+            <div class="date-item"><b>1914</b> Guerre de mouvement</div>
+            <div class="date-item"><b>1915 - 1917</b> Guerre de position</div>
+            <div class="date-item"><b>1918</b> Reprise du mouvement</div>
         </div>
 
-        <div style="margin-top: 60px; padding: 40px; background: rgba(107, 126, 106, 0.1); border-radius: 30px;">
-            <h3>Notions clés pour le brevet</h3>
-            <ul style="columns: 2; list-style-type: '— '; padding-left: 20px;">
-                <li>Guerre totale</li>
-                <li>Génocide arménien</li>
-                <li>Violence de masse</li>
-                <li>Propagande & Censure</li>
-                <li>Poilus</li>
-                <li>Arrière & Front</li>
-            </ul>
-        </div>
+        <h3>À retenir :</h3>
+        <ul>
+            <li><b>Guerre de mouvement :</b> Priorité à l'offensive rapide.</li>
+            <li><b>Guerre de position (ou de tranchées) :</b> Les armées s'enterrent pour protéger leurs positions.</li>
+            <li><b>1917, l'année tournant :</b> Entrée en guerre des États-Unis et retrait de la Russie (révolution bolchevique).</li>
+        </ul>
     </div>
+
+    <div class="lesson-card">
+        <h2>02. Une violence de masse</h2>
+        <p>La guerre devient "industrielle". On cherche à anéantir l'adversaire avec de nouvelles armes (gaz, chars, aviation).</p>
+        
+        <div class="highlight-box">
+            <strong>Bataille de Verdun (1916) :</strong> 10 mois de combats, 300 000 morts (Français et Allemands). C'est le symbole de l'enfer des tranchées et du courage des "Poilus".
+        </div>
+
+        <p><strong>Le Génocide des Arméniens (1915-1916) :</strong> Dans l'Empire Ottoman, les populations arméniennes sont victimes de massacres et de déportations planifiés (1,2 à 1,5 million de morts).</p>
+    </div>
+
+    <div class="lesson-card">
+        <h2>03. Une Guerre Totale</h2>
+        <p>Toute la société est mobilisée pour la victoire.</p>
+        <ul>
+            <li><b>À l'Arrière :</b> Les femmes remplacent les hommes (munitionnettes), l'économie devient une économie de guerre.</li>
+            <li><b>Les Esprits :</b> Utilisation de la propagande et de la censure pour cacher la réalité du front.</li>
+            <li><b>Financier :</b> Les États lancent des emprunts nationaux pour payer le coût exorbitant du conflit.</li>
+        </ul>
+    </div>
+
+    <div class="lesson-card" style="background: var(--earth); color: var(--sand);">
+        <h2 style="color: var(--clay);">04. Le bilan et l'Europe redessinée</h2>
+        <p>Le <b>11 novembre 1918</b>, l'armistice est signé. Le bilan est catastrophique :</p>
+        <ul>
+            <li><b>10 millions de morts</b> et des millions de mutilés (les "Gueules cassées").</li>
+            <li>Le <b>Traité de Versailles (28 juin 1919)</b> juge l'Allemagne seule responsable et lui impose de lourdes réparations.</li>
+            <li>La SDN (Société des Nations) est créée pour maintenir la paix.</li>
+        </ul>
+    </div>
+
 </div>
 
 <footer>
-    <p style="font-family: 'Playfair Display'; font-size: 1.5rem;">"Se souvenir pour construire demain."</p>
-    <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 20px;">Support d'étude — Histoire 3ème &copy; 2026</p>
+    Fiche de révision interactive | Histoire 3ème | 2026
 </footer>
-
-<script>
-    // Petit script pour animer l'apparition au défilement
-    window.addEventListener('scroll', () => {
-        const reveals = document.querySelectorAll('.reveal');
-        reveals.forEach(reveal => {
-            const windowHeight = window.innerHeight;
-            const revealTop = reveal.getBoundingClientRect().top;
-            if (revealTop < windowHeight - 150) {
-                reveal.classList.add('active');
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
